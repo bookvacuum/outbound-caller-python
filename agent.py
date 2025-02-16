@@ -36,6 +36,8 @@ _default_instructions = (
 
 async def entrypoint(ctx: JobContext):
     global _default_instructions, outbound_trunk_id
+    logger.info(f"Outbound Trunk ID: {outbound_trunk_id}")
+
     logger.info(f"connecting to room {ctx.room.name}")
     await ctx.connect(auto_subscribe=AutoSubscribe.AUDIO_ONLY)
 
@@ -203,7 +205,7 @@ def prewarm(proc: JobProcess):
 
 
 if __name__ == "__main__":
-    if not outbound_trunk_id or not outbound_trunk_id.startswith("ST_"):
+    if not outbound_trunk_id:
         raise ValueError(
             "SIP_OUTBOUND_TRUNK_ID is not set. Please follow the guide at https://docs.livekit.io/agents/quickstarts/outbound-calls/ to set it up."
         )
