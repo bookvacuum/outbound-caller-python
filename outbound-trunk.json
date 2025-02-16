@@ -1,9 +1,0 @@
-{
-    "trunk": {
-      "name": "My outbound trunk",
-      "address": "decisis.pstn.twilio.com",
-      "numbers": ["+18449022732"],
-      "auth_username": "DecisisAI101!",
-      "auth_password": "DecisisAI101!"
-    }
-  }
